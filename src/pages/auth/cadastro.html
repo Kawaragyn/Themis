@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | THEMIS</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="../../index.html">&larr; Voltar</a>
+            <a href="login.html">Entrar</a>
+        </div>
+        <h1>Cadastre-se</h1>
+        <p>Crie seu acesso ao Themis. Estamos construindo juntos um futuro mais consciente. 
+            Preencha seus dados para começar.</p>
+    </header>
+
+    <main>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome"required>
+            </div>
+
+            <div>
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+
+            <div>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required minlength="6">
+                <small>A senha deve ter no mínimo 6 caracteres.</small>
+            </div>
+
+            <button type="submit">CRIAR CONTA</button>
+        </form>
+    </main>
+
+</body>
+</html>
