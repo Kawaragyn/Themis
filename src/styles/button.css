@@ -1,0 +1,33 @@
+.botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+}
+
+main {
+    margin-top: 5rem;
+}
+
+.btn-conteudo, .btn-exercicios, .btn-leis{
+    width: 80%;
+    margin: 0.5rem 10%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 20px;
+    color: white;
+    height: 4rem;
+}
+
+.btn-conteudo {
+    background-color: rgb(125, 13, 230);
+}
+
+.btn-exercicios {
+    background-color: rgb(154, 46, 255);
+}
+
+.btn-leis {
+    background-color: rgb(183, 106, 255);
+}

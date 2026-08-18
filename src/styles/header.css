@@ -1,9 +1,24 @@
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between  ;
     align-items: center;
-    height: 2rem;
-    padding: 1rem 0.5rem;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 9%;
+    padding: 1rem;
     background-color: white;
+}
+
+.bitelo img {
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    height: 3rem;
+}
+
+.qtd-trofeus{
+    font-size: 1.4rem;
 }
