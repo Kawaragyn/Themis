@@ -4,23 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trilhas | THEMIS</title>
+    <link rel="stylesheet" href="../../styles/header.css">
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 <body>
     <header>
+        <img src="#" alt="foto-de-perfil">
         <img src="#" alt="logo">
-        <span>🏆0</span>
+        <span class="qtd-trofeus">🏆0</span>
     </header>
     <main>
 
     </main>
     <footer>
         <nav>
-            <a href="../forum/index.html" title="Fórum"><i data-lucide="message-square"></i></a>
-            <a href="../noticias/index.html" title="Notícias"><i data-lucide="globe"></i></a>
-            <a href="index.html" title="Início"><i data-lucide="home"></i></a>
-            <a href="../acervo/index.html" title="Acervo"><i data-lucide="book-open"></i></a>
-            <a href="../perfil/index.html" title="Perfil"><i data-lucide="user"></i></a>
+            <ul>
+                <li>
+                    <a href="../forum/index.html" title="Fórum">
+                        <i data-lucide="message-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../noticias/index.html" title="Notícias">
+                        <i data-lucide="globe"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" title="Início">
+                        <i data-lucide="home"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../acervo/index.html" title="Acervo">
+                        <i data-lucide="book-open"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="../perfil/index.html" title="Perfil">
+                        <i data-lucide="user"></i>
+                    </a>
+                </li>
+            </ul>
         </nav>
     </footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
