@@ -1,4 +1,4 @@
-header {
+#header-principal {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -8,6 +8,16 @@ header {
     top: 0;
     height: 9%;
     padding: 1rem;
+    background-color: white;
+}
+#header-forum {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.4rem;
+    height: 9%;
     background-color: white;
 }
 

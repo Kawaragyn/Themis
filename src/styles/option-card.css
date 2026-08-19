@@ -1,0 +1,14 @@
+.conta{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#foto-preview {
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    height: 10rem;
+}
