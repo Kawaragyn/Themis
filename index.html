@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="src/styles/global.css">
     <link rel="stylesheet" href="src/styles/reset.css">
     <link rel="stylesheet" href="src/styles/button.css">
+    <link rel="stylesheet" href="src/styles/navbar.css">
 </head>
 <body>
     <header>
@@ -14,13 +15,13 @@
     </header>
 
     <main>
-        <div>
-            <div>
-                <a href="src/pages/auth/cadastro.html">Cadastrar</a>
+        <div id="botoes-iniciais">
+            <div class="container-entrar">
+                <a href="src/pages/auth/cadastro.html" class="btn-entrar">Entrar</a>
             </div>
     
-            <div>
-                <a href="src/pages/auth/login.html">Entrar</a>
+            <div class="container-cadastro">
+                <a href="src/pages/auth/login.html" class="btn-cadastro">Cadastrar</a>
             </div>
     
             <div>
@@ -30,7 +31,7 @@
         
     </main>
 
-    <footer>
+    <footer id="rodape">
         <div>
             <p>&copy; 2026 THEMIS | Plataforma de Cidadania e Conhecimento</p>
             <nav>
@@ -38,8 +39,6 @@
                 <span>Contato</span> | 
                 <span>Termos de Uso</span>
             </nav>
-
-            <p>Desenvolvido para a BRAGANTEC 2026 | Versão 0.1.0</p>
         </div>
     </footer>
 

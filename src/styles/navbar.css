@@ -18,3 +18,9 @@ footer nav ul li a svg {
     height: 40px;
     width: 30px;
 }
+
+#rodape {
+    background-color: rgb(74, 0, 143);
+    color: white;
+    text-align: center;
+}

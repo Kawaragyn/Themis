@@ -9,6 +9,41 @@ main {
     margin-top: 5rem;
 }
 
+#botoes-iniciais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+    height: 100vh;
+}
+
+.container-entrar, .container-cadastro{
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    width: 100%;
+    font-weight: 900;
+}
+
+.btn-entrar, .btn-cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+    width: 20rem;
+    border-radius: 50px;
+}
+
+.btn-entrar{
+    background-color: blueviolet;
+    color: white;
+}
+
+.btn-cadastro{
+    background-color: white;
+    border: 2px solid blueviolet;
+}
+
 .btn-conteudo, .btn-exercicios, .btn-leis{
     width: 80%;
     margin: 0.5rem 10%;
