@@ -13,6 +13,8 @@ footer nav ul {
     display: flex;
 }
 
-footer nav li {
+footer nav ul li a svg {
     margin: 0 5vw;
+    height: 40px;
+    width: 30px;
 }

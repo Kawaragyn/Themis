@@ -32,3 +32,28 @@ main {
 .btn-leis {
     background-color: rgb(183, 106, 255);
 }
+
+#btn-noticias {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    bottom: 5%;
+    padding: 1rem;
+}
+
+.btn-add-noticias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-top: auto;
+    font-size: 40px;
+    font-weight: 900;
+}
