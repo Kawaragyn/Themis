@@ -4,7 +4,7 @@ const topicosDoBanco = [
     nome: "Tomioka",
     usuario: "@antifelicidade",
     data: "06/09/2026",
-    conteudo: "Já parou para pensar em como o clima político e as incertezas do país afetam diretamente a nossa saúde mental? A exposição constante a notícias difíceis, a polarização nas redes e a sensação de falta de perspectiva em relação ao futuro geram um desgaste silencioso. Muitas vezes, a sobrecarga de informações e a ansiedade sobre os rumos da sociedade se somam a quadros de exaustão e depressão. Cuidar de si e estabelecer limites no consumo de notícias também é uma forma de preservação. Afinal, como construir um debate público saudável se as pessoas estão mentalmente esgotadas?",
+    conteudo: "Já parou para pensar em como o clima político e as incertezas do país afetam diretamente a nossa saúde mental? A exposição constante a notícias difíceis, a polarização nas redes e a sensação de falta de perspectiva em relação ao futuro geram um desgaste silencioso. Muitas vezes, a sobrecarga de informações e a ansiedade sobre os rumos da sociedade se somam a quadros de exaustão e depressão.",
     curtidas: 0,
     comentarios: 0,
     fotoPerfil: "../../image/pessoa1.jpeg"
@@ -14,7 +14,17 @@ const topicosDoBanco = [
     nome: "Sanemi",
     usuario: "@ventosopra",
     data: "06/09/2026",
-    conteudo: "Que raiva dessa palhaçada de todo mundo achar que entende de política agora só porque lê manchete de rede social! Passam o dia inteiro reclamando do país, apontando o dedo pra governante, mas na hora de cobrar leis de verdade ou estudar como o sistema funciona, somem. Ficar com raivinha na internet e não mover um dedo na vida real pra mudar as coisas é fácil demais. Se quer criticar a situação do país, primeiro toma vergonha na cara, entende os seus deveres e vai pra cima cobrar quem manda!",
+    conteudo: "Que raiva dessa palhaçada de todo mundo achar que entende de política agora só porque lê manchete de rede social! Passam o dia inteiro reclamando do país, apontando o dedo pra governante, mas na hora de cobrar leis de verdade ou estudar como o sistema funciona, somem.",
+    curtidas: 0,
+    comentarios: 0,
+    fotoPerfil: "../../image/pessoa2.jpeg"
+  },
+  {
+    id: 3,
+    nome: "Obanai",
+    usuario: "@cobravenenosa",
+    data: "01/07/2026",
+    conteudo: "Gente, como faz um post",
     curtidas: 0,
     comentarios: 0,
     fotoPerfil: "../../image/pessoa2.jpeg"
@@ -36,6 +46,7 @@ function carregarTopicos() {
                         <h3 class="name">${topico.nome}</h3>
                         <span class="user">${topico.usuario}</span>
                     </div>
+                    <a href="#" class="btn-seguir">Seguir</a>
                 </div>
                 <p class="topic-preview">${topico.conteudo}</p>
                 <div class="topic-interacoes">

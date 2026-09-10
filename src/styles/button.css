@@ -91,3 +91,39 @@ main {
     font-size: 40px;
     font-weight: 900;
 }
+
+.btn-curtir, .btn-comentar{
+    background-color: rgb(242, 221, 255);
+    border: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-curtir:active {
+    transform: scale(1.2);
+}
+
+.btn-curtir.curtido {
+    color: #ae00ff; 
+}
+
+.btn-curtir.curtido svg {
+    fill: #ae00ff;
+}
+
+.btn-seguir{
+    background-color: #8d02ce;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-weight: 700;
+    height: 30px;
+    width: 60px;
+}

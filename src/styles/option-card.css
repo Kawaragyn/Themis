@@ -14,11 +14,17 @@
 }
 
 .topic-card{
-    margin: 2rem 3rem;
+    margin: 1rem;
     border-radius: 6px;
-    background-color: rgb(242, 221, 255);
+    background-color: rgb(255, 255, 255);
     text-align: left;
     padding: 0.5rem;
+}
+
+.topic-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .user-info{
@@ -41,8 +47,8 @@
 }
 
 .topic-preview{
-    font-size: 20px;
-    margin: 1rem;
+    font-size: 17px;
+    margin: 0.5rem;
 }
 
 .topic-interacoes{
@@ -55,28 +61,4 @@
     display: flex;
     align-items: center;
     opacity: 0.8;
-}
-
-.btn-curtir, .btn-comentar{
-    background-color: rgb(242, 221, 255);
-    border: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    display: flex;
-    align-items: center;
-    transition: color 0.2s ease, transform 0.1s ease;
-}
-
-.btn-curtir:active {
-    transform: scale(1.2);
-}
-
-.btn-curtir.curtido {
-    color: #e63946; 
-}
-
-.btn-curtir.curtido svg {
-    fill: #e63946;
 }
