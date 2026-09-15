@@ -1,0 +1,14 @@
+.opcoes{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 20px;
+}
+
+#logar-cadastrar{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 15px;
+    padding: 0.4rem;
+}
+

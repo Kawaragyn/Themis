@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | THEMIS</title>
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/auth.css">
 </head>
 <body>
     <header>
-        <div>
-            <a href="../../index.html">&larr; Voltar</a>
-            <a href="login.html">Entrar</a>
+        <div class="opcoes">
+            <div class="btn-voltar">
+                <a href="../../../index.html">&larr; Voltar</a>
+            </div>
+            <div id="logar-cadastrar">
+                <a href="login.html">Entrar</a>
+            </div>
         </div>
         <h1>Cadastre-se</h1>
         <p>Crie seu acesso ao Themis. Estamos construindo juntos um futuro mais consciente. 
@@ -36,7 +43,6 @@
             <div>
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" required minlength="6">
-                <small>A senha deve ter no mínimo 6 caracteres.</small>
             </div>
 
             <button type="submit">CRIAR CONTA</button>
