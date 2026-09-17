@@ -1,7 +1,11 @@
+body{
+    height: 100%;
+}
+
 .opcoes{
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
+    margin: 1rem;
     font-size: 20px;
 }
 
@@ -12,3 +16,48 @@
     padding: 0.4rem;
 }
 
+main, .header-sign-up-in{
+    margin: 0 2rem;
+}
+
+input {
+    border-radius: 20px;
+    background-color: white;
+    font-size: 30px;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.header-sign-up-in {
+    font-size: 20px;
+    margin-top: 4rem;
+}
+
+.forms{
+    margin-top: 6rem;
+}
+
+.altura-cadastrar{
+    margin-top: 4rem;
+}
+
+.altura-entrar{
+    height: 30vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.salvar{
+    color: white;
+    background-color: blueviolet;
+    border-radius: 20px;
+    padding: 1rem;
+    font-size: 20px;
+}
