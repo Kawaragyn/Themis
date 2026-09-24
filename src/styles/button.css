@@ -76,7 +76,7 @@ main {
     padding: 1rem;
 }
 
-.btn-add-noticias{
+.btn-add{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,4 +126,19 @@ main {
     font-weight: 700;
     height: 30px;
     width: 60px;
+}
+
+.botoes-forum{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.btn-voltar{
+    font-size: 35px;
+}
+
+.btn-postar{
+    
 }
