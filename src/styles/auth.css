@@ -21,12 +21,12 @@ main, .header-sign-up-in{
 }
 
 input {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: white;
     font-size: 30px;
 }
 
-#formulario{
+.formulario{
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -60,4 +60,5 @@ input {
     border-radius: 20px;
     padding: 1rem;
     font-size: 20px;
+    width: 60vw;
 }
