@@ -12,14 +12,33 @@
     <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 <body>
-    <div class="botoes-forum">
-        <div class="btn-voltar">
-            <a href="index.html">←</a>
+    <header>
+        <div class="botoes-forum">
+            <div class="btn-voltar">
+                <a href="index.html">←</a>
+            </div>
+            <div>
+                <a href="index.html" class="btn-postar">PUBLICAR</a>
+            </div>
         </div>
-        <div>
-            <a href="btn-postar">PUBLICAR</a>
+    </header>
+    <main>
+        <div class="forum-postar">
+            <div class="bitelo">
+                <img src="../../image/bitelo.jpg" alt="Foto de perfil">
+            </div>
+
+            <form action="/topico/123/responder" method="post" class="card-postar">
+                <textarea 
+                    id="resposta" 
+                    name="conteudo" 
+                    rows="5" 
+                    maxlength="5000"
+                    placeholder="Estou pensando em..."
+                    required></textarea>
+            </form>
         </div>
-    </div>
+    </main>
     
 </body>
 </html>

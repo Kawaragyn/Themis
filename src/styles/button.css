@@ -133,6 +133,8 @@ main {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1rem;
 }
 
 .btn-voltar{
@@ -140,5 +142,9 @@ main {
 }
 
 .btn-postar{
-    
+    background-color: #8d02ce;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 20px;
+    font-size: 16px;
 }

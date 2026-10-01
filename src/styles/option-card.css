@@ -1,3 +1,4 @@
+
 .conta{
     display: flex;
     justify-content: center;
@@ -61,4 +62,43 @@
     display: flex;
     align-items: center;
     opacity: 0.8;
+}
+
+.forum-postar{
+    padding: 0.3rem;
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+}
+
+.card-postar{
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    justify-content: start;
+    margin-left: 0.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card-postar:focus-within {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+textarea{
+    width: 95%;
+    border: 0px;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    resize: none;
+    height: 20rem;
+}
+
+textarea::placeholder {
+    color: #aaa;
+}
+
+.forum-postar .bitelo{
+    display: flex;
+    margin-left: 1rem;
 }
