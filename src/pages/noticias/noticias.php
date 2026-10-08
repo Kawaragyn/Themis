@@ -57,9 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
     }
 }
-
-// Fecha oficialmente a ponte de conexão com o MySQL
-$conexao->close();
 ?>
 
 <!DOCTYPE html>
@@ -75,19 +72,7 @@ $conexao->close();
     <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 <body>
-    <h1>uuuuuuuuuuuuuuuu</h1>
-    <header id="header-principal">
-        <div class="bitelo">
-            <img src="../../image/BItelo.jpg" alt="foto-de-perfil">
-        </div>
-        <div class="duo">
-            <img src="../../image/duo.svg" alt="logo">
-        </div>
-        <div class="qtd-trofeus">
-            <span>🏆5</span>
-        </div>
-        
-    </header>
+    <?php require_once __DIR__ . "/../shared/header.php"; ?>
     <main>
 
     </main>

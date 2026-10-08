@@ -1,3 +1,23 @@
+<?php
+session_start();
+require_once __DIR__ . "/../auth/conexao.php";
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: ../auth/login.php");
+    exit;
+}
+
+$id_usuario = (int) $_SESSION['id_usuario'];
+
+$sql = "SELECT nome, foto_perfil FROM USUARIOS WHERE id_usuario = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i", $id_usuario);
+$stmt->execute();
+$u = $stmt->get_result()->fetch_assoc();
+$stmt->close();
+
+$foto = !empty($u['foto_perfil']) ? $u['foto_perfil'] : "../../image/foto-perfil.png";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +45,7 @@
     <main>
         <div class="forum-postar">
             <div class="bitelo">
-                <img src="../../image/bitelo.jpg" alt="Foto de perfil">
+                <img src="<?= htmlspecialchars($foto) ?>" alt="Foto de perfil">
             </div>
 
             <form action="salvar-post.php" method="POST" class="card-postar" id="formPost">

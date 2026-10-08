@@ -11,18 +11,7 @@
     <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 <body>
-    <header id="header-principal">
-        <div class="bitelo">
-            <img src="../../image/BItelo.jpg" alt="foto-de-perfil">
-        </div>
-        <div class="duo">
-            <img src="../../image/duo.svg" alt="logo">
-        </div>
-        <div class="qtd-trofeus">
-            <span>🏆5</span>
-        </div>
-        
-    </header>
+    <?php require_once __DIR__ . "/../shared/header.php"; ?>
     <main>
         <section class="botoes">
             <a href="#" class="btn-conteudo">Conteúdos</a>

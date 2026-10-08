@@ -26,7 +26,7 @@ if (!$u) {
 }
 
 $sql = "SELECT t.id_topico, t.titulo, t.conteudo, t.data_criacao,
-               u.nome, u.usuario
+               u.nome, u.usuario, u.foto_perfil
         FROM TOPICOS_FORUM t
         INNER JOIN USUARIOS u ON u.id_usuario = t.id_usuario
         WHERE t.status_moderacao = 'aprovado'
@@ -66,10 +66,17 @@ $conexao->close();
                 <p style="padding: 20px;">Nenhum tópico ainda. Seja o primeiro a postar!</p>
             <?php else: ?>
                 <?php foreach ($topicos as $t): ?>
+                    <?php
+                    $foto_post = !empty($t['foto_perfil']) 
+                        ? $t['foto_perfil'] 
+                        : '../../image/foto-perfil.png';
+                    ?>
                     <article class="topic-card" data-id="<?= (int)$t['id_topico'] ?>">
                         <div class="topic-header">
                             <div class="user-info">
-                                <img src="../../image/pessoa1.jpeg" alt="Foto de <?= htmlspecialchars($t['nome']) ?>" class="avatar">
+                                <img src="<?= htmlspecialchars($foto_post) ?>" 
+                                     alt="Foto de <?= htmlspecialchars($t['nome']) ?>" 
+                                     class="avatar">
                                 <h3 class="name"><?= htmlspecialchars($t['nome']) ?></h3>
                                 <span class="user">@<?= htmlspecialchars($t['usuario']) ?></span>
                             </div>
@@ -105,7 +112,7 @@ $conexao->close();
         </div>
 
         <div id="btn-noticias">
-            <a href="criar-post.html" class="btn-add">+</a>
+            <a href="criar-post.php" class="btn-add">+</a>
         </div>
     </main>
 
@@ -125,7 +132,6 @@ $conexao->close();
     <script>lucide.createIcons();</script>
 
     <script>
-        // Mantém só a interação de curtir (visual, ainda não salva no banco)
         document.querySelectorAll('.btn-curtir').forEach(botao => {
             botao.addEventListener('click', () => {
                 const container = botao.parentElement;

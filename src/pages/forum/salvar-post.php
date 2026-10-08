@@ -8,7 +8,7 @@ if (!isset($_SESSION['id_usuario'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: criar-post.html");
+    header("Location: criar-post.php");
     exit;
 }
 
@@ -34,5 +34,4 @@ if ($stmt->execute()) {
 }
 
 $stmt->close();
-$conexao->close();
 ?>
