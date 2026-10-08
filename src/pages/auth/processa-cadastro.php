@@ -1,53 +1,79 @@
 <?php
-// Inclui o arquivo de conexão criado no passo anterior
-require_once "conexao.php";
+session_start();
+require_once __DIR__ . "/conexao.php";
 
-// Verifica se o usuário chegou aqui enviando o formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // Coleta os dados e remove espaços extras no início e fim
-    $usuario = trim($_POST['usuario']);
-    $nome    = trim($_POST['nome']);
-    $email   = trim($_POST['email']);
-    $senha   = $_POST['senha'];
-
-    // 1. CRIPTOGRAFIA DA SENHA (Segurança obrigatória)
-    // O PASSWORD_DEFAULT gera um hash seguro (uma string gigante aleatória)
-    $senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
-
-    // 2. PREPARAÇÃO DO COMANDO SQL (Evita invasões por SQL Injection)
-    // Usamos "?" no lugar dos valores por segurança
-    $sql = "INSERT INTO USUARIOS (usuario, nome, email, senha) VALUES (?, ?, ?, ?)";
-    $stmt = $conexao->prepare($sql);
-    
-    if ($stmt) {
-        // "ssss" significa que estamos passando 4 variáveis do tipo String (texto)
-        $stmt->bind_param("ssss", $usuario, $nome, $email, $senha_criptografada);
-        
-        // 3. EXECUÇÃO DO CADASTRO
-        if ($stmt->execute()) {
-            // Se der certo, exibe um alerta visual e redireciona para a página de login
-            echo "<script>
-                    alert('Cadastro realizado com sucesso! Bem-vindo ao Themis.');
-                    window.location.href = 'login.html';
-                  </script>";
-        } else {
-            // Tratamento de erro caso o Usuário ou E-mail já existam (Erro 1062 do MySQL)
-            if ($conexao->errno == 1062) {
-                echo "<script>
-                        alert('Erro: Este nome de usuário ou e-mail já está em uso!');
-                        window.history.back();
-                      </script>";
-            } else {
-                echo "Erro ao cadastrar: " . $stmt->error;
-            }
-        }
-        
-        // Fecha a declaração por segurança
-        $stmt->close();
-    }
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: cadastro.php");
+    exit;
 }
 
-// Fecha a conexão com o banco de dados
+$usuario = trim($_POST['usuario'] ?? '');
+$nome    = trim($_POST['nome']    ?? '');
+$email   = trim($_POST['email']   ?? '');
+$senha   = $_POST['senha']        ?? '';
+
+// Validações básicas
+if ($usuario === '' || $nome === '' || $email === '' || $senha === '') {
+    echo "<script>alert('Preencha todos os campos.'); window.history.back();</script>";
+    exit;
+}
+
+if (strlen($senha) < 6) {
+    echo "<script>alert('A senha deve ter pelo menos 6 caracteres.'); window.history.back();</script>";
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "<script>alert('E-mail inválido.'); window.history.back();</script>";
+    exit;
+}
+
+// Verifica duplicidade antes (mensagem mais amigável)
+$sql = "SELECT id_usuario FROM USUARIOS WHERE usuario = ? OR email = ? LIMIT 1";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("ss", $usuario, $email);
+$stmt->execute();
+$stmt->store_result();
+
+if ($stmt->num_rows > 0) {
+    echo "<script>alert('Usuário ou e-mail já cadastrado.'); window.history.back();</script>";
+    $stmt->close();
+    $conexao->close();
+    exit;
+}
+$stmt->close();
+
+// Hash da senha
+$senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+// Insere no banco
+$sql = "INSERT INTO USUARIOS (usuario, nome, email, senha) VALUES (?, ?, ?, ?)";
+$stmt = $conexao->prepare($sql);
+
+if ($stmt) {
+    $stmt->bind_param("ssss", $usuario, $nome, $email, $senha_criptografada);
+
+    if ($stmt->execute()) {
+        // ✅ Cria a sessão automaticamente (login imediato)
+        $_SESSION['id_usuario'] = $stmt->insert_id;
+        $_SESSION['usuario']    = $usuario;
+        $_SESSION['nome']       = $nome;
+
+        // ✅ Redireciona direto pras trilhas
+        echo "<script>
+                alert('Cadastro realizado com sucesso! Bem-vindo ao Themis.');
+                window.location.href = '../formacao/trilhas.php';
+              </script>";
+    } else {
+        if ($stmt->errno == 1062) {
+            echo "<script>alert('Usuário ou e-mail já está em uso.'); window.history.back();</script>";
+        } else {
+            echo "Erro ao cadastrar: " . htmlspecialchars($stmt->error);
+        }
+    }
+
+    $stmt->close();
+}
+
 $conexao->close();
 ?>

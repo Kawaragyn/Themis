@@ -1,63 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum | THEMIS</title>
-    <link rel="stylesheet" href="../../styles/header.css">
+    <title>Acervo | THEMIS</title>
     <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="../../styles/option-card.css">
     <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/header.css">
     <link rel="stylesheet" href="../../styles/button.css">
     <link rel="stylesheet" href="../../styles/navbar.css">
-    <script src="../../script/forum.js" defer></script>
 </head>
 <body>
-    <header>
-        <div id="header-forum">
-            <div>
-                <a href="#" title="Notificações" class="notificacoes"><i data-lucide="bell"></i></a>
-            </div>
-            <div>
-                <a href="#" title="Pesquisar" class="lupa"><i data-lucide="search"></i></a>
-            </div>
+    <header id="header-principal">
+        <div class="bitelo">
+            <img src="../../image/BItelo.jpg" alt="foto-de-perfil">
         </div>
-    </header>
-
-    <main>
-
-        <div id="lista-topicos"></div>
+        <div class="duo">
+            <img src="../../image/duo.svg" alt="logo">
+        </div>
+        <div class="qtd-trofeus">
+            <span>🏆5</span>
+        </div>
         
-        <div id="btn-noticias">
-            <a href="criar-post.html" class="btn-add">+</a>
-        </div>
-    </main>
+    </header>
+    <main>
+        <section class="botoes">
+            <a href="#" class="btn-conteudo">Conteúdos</a>
+            <a href="#" class="btn-exercicios">Exercícios</a>
+            <a href="#" class="btn-leis">Leis</a>
+        </section>
 
+    </main>
     <footer>
         <nav>
             <ul>
                 <li>
-                    <a href="index.html" title="Fórum">
+                    <a href="../forum/forum.php" title="Fórum">
                         <i data-lucide="message-square"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="../noticias/index.html" title="Notícias">
+                    <a href="../noticias/noticias.php" title="Notícias">
                         <i data-lucide="globe"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="../formacao/index.html" title="Início">
+                    <a href="../formacao/trilhas.php" title="Início">
                         <i data-lucide="home"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="../acervo/index.html" title="Acervo">
+                    <a href="index.php" title="Acervo">
                         <i data-lucide="book-open"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="../perfil/index.html" title="Perfil">
+                    <a href="../perfil/mostrarperfil.php" title="Perfil">
                         <i data-lucide="user"></i>
                     </a>
                 </li>

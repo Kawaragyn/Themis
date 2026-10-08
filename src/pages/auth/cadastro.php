@@ -26,7 +26,7 @@
     </header>
 
     <main>
-        <form action="processa_cadastro.php" method="POST" class="forms">
+        <form action="processa-cadastro.php" method="POST" class="forms">
             
             <div class="formulario">
                 <label for="usuario">Usuario</label>

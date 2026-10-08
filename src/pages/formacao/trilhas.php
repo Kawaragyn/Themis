@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
@@ -14,9 +15,15 @@ $id_usuario = (int) $_SESSION['id_usuario'];
 
 $sql = "SELECT nome, pontos_participacao FROM USUARIOS WHERE id_usuario = ?";
 $stmt = $conexao->prepare($sql);
+
+if (!$stmt) {
+    die("Erro ao preparar query de usuário: " . $conexao->error);
+}
+
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
-$u = $stmt->get_result()->fetch_assoc();
+$resultado = $stmt->get_result();
+$u = $resultado->fetch_assoc();
 $stmt->close();
 
 if (!$u) {
@@ -25,18 +32,18 @@ if (!$u) {
     exit;
 }
 
-$sql = "SELECT t.id_topico, t.titulo, t.conteudo, t.data_criacao, u.nome
-        FROM TOPICOS_FORUM t
-        INNER JOIN USUARIOS u ON u.id_usuario = t.id_usuario
-        WHERE t.status_moderacao = 'aprovado'
-        ORDER BY t.data_criacao DESC";
+$sql = "SELECT id_trilha, titulo, descricao, ordem 
+        FROM TRILHAS 
+        ORDER BY ordem, id_trilha";
+
 $resultado = $conexao->query($sql);
 
 if (!$resultado) {
-    die("Erro ao buscar tópicos: " . $conexao->error);
+    die("Erro ao buscar trilhas: " . $conexao->error);
 }
 
-$topicos = $resultado->fetch_all(MYSQLI_ASSOC);
+$trilhas = $resultado->fetch_all(MYSQLI_ASSOC);
+
 $conexao->close();
 ?>
 <!DOCTYPE html>
@@ -44,54 +51,48 @@ $conexao->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórum | THEMIS</title>
+    <title>Trilhas | THEMIS</title>
     <link rel="stylesheet" href="../../styles/header.css">
     <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="../../styles/option-card.css">
     <link rel="stylesheet" href="../../styles/reset.css">
-    <link rel="stylesheet" href="../../styles/button.css">
     <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 <body>
-    <header>
-        <div id="header-forum">
-            <div>
-                <a href="#" title="Notificações" class="notificacoes"><i data-lucide="bell"></i></a>
-            </div>
-            <div>
-                <a href="#" title="Pesquisar" class="lupa"><i data-lucide="search"></i></a>
-            </div>
+    <header id="header-principal">
+        <div class="bitelo">
+            <img src="../../image/BItelo.jpg" alt="foto-de-perfil">
+        </div>
+        <div class="duo">
+            <img src="../../image/duo.svg" alt="logo">
+        </div>
+        <div class="qtd-trofeus">
+            <span>🏆 <?= (int)$u['pontos_participacao'] ?></span>
         </div>
     </header>
 
     <main>
-        <h2 style="padding: 20px;">💬 Fórum</h2>
 
-        <?php if (empty($topicos)): ?>
-            <p style="padding: 20px;">Nenhum tópico ainda. Seja o primeiro a postar!</p>
-        <?php else: ?>
-            <?php foreach ($topicos as $t): ?>
-                <article class="card-topico" style="padding: 15px; border-bottom: 1px solid #eee;">
-                    <h3><?= htmlspecialchars($t['titulo']) ?></h3>
-                    <p><?= htmlspecialchars($t['conteudo']) ?></p>
-                    <small>
-                        Por <?= htmlspecialchars($t['nome']) ?> 
-                        em <?= date('d/m/Y H:i', strtotime($t['data_criacao'])) ?>
-                    </small>
-                </article>
-            <?php endforeach; ?>
-        <?php endif; ?>
+        <section class="lista-trilhas">
+            <h2>Olá, <?= htmlspecialchars($u['nome']) ?>!</h2>
 
-        <div id="btn-noticias">
-            <a href="criar-post.html" class="btn-add">+</a>
-        </div>
+            <?php if (empty($trilhas)): ?>
+                <p>Nenhuma trilha cadastrada ainda.</p>
+            <?php else: ?>
+                <?php foreach ($trilhas as $t): ?>
+                    <a href="modulos.php?id_trilha=<?= (int)$t['id_trilha'] ?>" class="card-trilha">
+                        <h3><?= htmlspecialchars($t['titulo']) ?></h3>
+                        <p><?= htmlspecialchars($t['descricao'] ?? '') ?></p>
+                    </a>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </section>
     </main>
 
     <footer>
         <nav>
-           <ul>
+            <ul>
                 <li>
-                    <a href="forum.php" title="Fórum">
+                    <a href="../forum/forum.php" title="Fórum">
                         <i data-lucide="message-square"></i>
                     </a>
                 </li>
@@ -101,7 +102,7 @@ $conexao->close();
                     </a>
                 </li>
                 <li>
-                    <a href="../formacao/trilhas.php" title="Início">
+                    <a href="trilhas.php" title="Início">
                         <i data-lucide="home"></i>
                     </a>
                 </li>
