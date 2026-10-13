@@ -25,7 +25,7 @@ if (!$u) {
     exit;
 }
 
-$sql = "SELECT t.id_topico, t.titulo, t.conteudo, t.data_criacao,
+$sql = "SELECT t.id_topico, t.id_usuario, t.titulo, t.conteudo, t.data_criacao,
                u.nome, u.usuario, u.foto_perfil
         FROM TOPICOS_FORUM t
         INNER JOIN USUARIOS u ON u.id_usuario = t.id_usuario

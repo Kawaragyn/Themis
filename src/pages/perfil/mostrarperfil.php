@@ -26,6 +26,14 @@ if (!$u) {
 }
 
 $foto = !empty($u['foto_perfil']) ? $u['foto_perfil'] : "../../image/BItelo.jpg";
+
+$sql_p = "SELECT COUNT(*) AS total FROM TOPICOS_FORUM WHERE id_usuario = ?";
+$stmt_p = $conexao->prepare($sql_p);
+$stmt_p->bind_param("i", $id_usuario);
+$stmt_p->execute();
+$total_posts = $stmt_p->get_result()->fetch_assoc()['total'];
+$stmt_p->close();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,6 +55,7 @@ $foto = !empty($u['foto_perfil']) ? $u['foto_perfil'] : "../../image/BItelo.jpg"
             <p>🏆 <?= (int)$u['pontos_participacao'] ?> pontos</p>
 
             <a href="alterar-dados.php" class="btn-editar">Editar perfil</a>
+            <a href="alterar-postagens.php" class="btn-editar">Meus posts</a>
         </section>
     </div>
 
