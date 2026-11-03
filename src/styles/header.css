@@ -35,3 +35,13 @@
 .qtd-trofeus{
     font-size: 1.4rem;
 }
+
+.header-admin{
+    background-color: #8a2be2;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 1rem;
+}

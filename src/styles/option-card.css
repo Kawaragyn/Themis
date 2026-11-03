@@ -203,3 +203,21 @@ textarea::placeholder {
     font-weight: bold;
     font-size: 14px;
 }
+
+.container-modulo{
+    border: 1px solid rgb(0, 0, 0);
+    display: inline-block;
+    width: 80%;
+    background-color: white;
+}
+
+.titulo-modulo{
+    height: 2rem;
+    padding: 1rem;
+}
+
+.add-conteudo{
+    min-height: 70vh;
+    outline: none;
+    border-color: transparent;
+}
