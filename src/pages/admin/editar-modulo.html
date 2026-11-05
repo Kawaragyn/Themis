@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../../styles/global.css">
     <link rel="stylesheet" href="../../styles/header.css">
     <link rel="stylesheet" href="../../styles/option-card.css">
+    <link rel="stylesheet" href="../../styles/admin.css">
+    <script src="../../script/fazer-modulo.js" defer></script>
+    <script></script>
 </head>
 <body>
     <header class="header-admin">
@@ -16,12 +19,22 @@
         <h2>Módulo</h2>
         <div class="container-modulo">
             <section>
+                <hr>
                 <textarea name="titulo" class="titulo-modulo"></textarea>
                 <hr>
-                <textarea class="add-conteudo" rows="1" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+                <div class="add-conteudo" contenteditable="true" id="editor-texto"></div>
 
             </section>
         </div>
+        <div>
+            <label for="input-imagem" class="botao-enviar-imagem" title="Clique para enviar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paperclip preview-icon"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></svg>
+            </label>
+            <input type="file" id="input-imagem" accept="image/*">
+        </div>
     </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>

@@ -209,11 +209,16 @@ textarea::placeholder {
     display: inline-block;
     width: 80%;
     background-color: white;
+    text-align: left;
+    font-size: 15px;
+    padding: 1rem;
 }
 
 .titulo-modulo{
     height: 2rem;
     padding: 1rem;
+    margin: 0 5rem;
+    font-size: 30px;
 }
 
 .add-conteudo{

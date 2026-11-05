@@ -1,0 +1,10 @@
+#input-imagem {
+    display: none;
+}
+
+.botao-enviar-imagem {
+    font-size: 40px; 
+    cursor: pointer; 
+    display: inline-block;
+    transition: transform 0.2s;
+}
